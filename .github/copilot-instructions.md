@@ -285,3 +285,20 @@ Help me make good architectural decisions, but allow the architecture to emerge 
 When several approaches are valid, tell me which one you recommend for this project and briefly explain why.
 
 Most importantly: do not race ahead of me.
+
+## README Maintenance
+
+The README's "Current status" section must stay accurate.
+
+When a milestone is completed or a major capability is added, remind me to update
+the README before we move on. Examples:
+
+- Add Glass form works, or inventory is editable
+- localStorage persistence is added
+- Projects, costing, or pricing are added
+- The ASP.NET Core API is created
+- SQL Server / Entity Framework Core is introduced
+- Photos or sales tracking are added
+
+Remind me briefly and say which README sections are stale (Current status,
+Technology, Development approach). I'll write the update myself unless I ask you to draft it.
