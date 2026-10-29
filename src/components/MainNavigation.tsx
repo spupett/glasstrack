@@ -1,15 +1,19 @@
+import { Link } from "react-router";
+
 export default function MainNavigation() {
+  // use Link and to for navigation since 'a' tags would cause full
+  // page reloads and messes up any state in the app
   return (
     <nav>
       <ul>
         <li>
-          <a href="/">Home</a>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <a href="/inventory">Inventory</a>
+          <Link to="/inventory">Inventory</Link>
         </li>
         <li>
-          <a href="/add-glass">Add Glass</a>
+          <Link to="/add-glass">Add Glass</Link>
         </li>
       </ul>
     </nav>

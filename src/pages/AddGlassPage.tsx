@@ -1,5 +1,6 @@
 import type { AddGlassItem } from "../types/AddGlassItem";
 import { useState } from "react";
+import type { GlassItem } from "../types/GlassItem";
 
 const initialValues: AddGlassItem = {
   glassType: "",
@@ -13,12 +14,15 @@ const initialValues: AddGlassItem = {
   scrap: false,
 };
 
-export default function AddGlassPage() {
+export default function AddGlassPage(props: {
+  inventory: GlassItem[];
+  onGlassAdd: (glass: GlassItem) => void;
+}) {
   const [form, setForm] = useState<AddGlassItem>(initialValues);
+  const { inventory } = props;
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { name, value, type, checked } = event.target;
-    console.log(name, value, checked);
     setForm((prevForm) => ({
       ...prevForm,
       [name]: type === "checkbox" ? checked : value,
@@ -27,8 +31,30 @@ export default function AddGlassPage() {
 
   function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
-    console.log(form);
+    const newGlass = mapFormToInventoryItem(form);
+
+    props.onGlassAdd(newGlass);
+
+    console.log("Inventory after adding:", [...inventory, newGlass]);
     setForm(initialValues); // reset
+  }
+
+  function mapFormToInventoryItem(form: AddGlassItem): GlassItem {
+    return {
+      id: (inventory.length + 1).toString(),
+      manufacturer: "",
+      productNumber: "",
+      color: form.color ? form.color.split(",").map((c) => c.trim()) : [],
+      glassType: form.glassType,
+      texture: form.texture,
+      widthInches: form.widthInches ?? 0,
+      heightInches: form.heightInches ?? 0,
+      purchaseCost: form.purchaseCost,
+      quantity: form.quantity,
+      scrap: form.scrap ?? false,
+      purchasedFrom: form.purchasedFrom,
+      imageUrl: "",
+    };
   }
 
   return (

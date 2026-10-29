@@ -35,7 +35,7 @@ export const sampleGlass: GlassItem[] = [
     id: "3",
     manufacturer: "Manufacturer C",
     productNumber: "11223",
-    color: ["Amber", "Yellow"],
+    color: ["Amber", "Yellow", "Clear"],
     glassType: "Tempered",
     texture: "Smooth",
     widthInches: 20,

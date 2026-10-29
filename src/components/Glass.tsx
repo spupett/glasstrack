@@ -18,8 +18,6 @@ export default function Glass(props: {
         <p>Quantity: {props.glass.quantity}</p>
       </div>
       <div>
-        <p>Storage Location: {props.glass.storageLocation}</p>
-        <p>Notes: {props.glass.notes}</p>
         <p>Purchased From: {props.glass.purchasedFrom}</p>
         <p>Image URL: {props.glass.imageUrl}</p>
       </div>

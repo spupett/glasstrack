@@ -1,16 +1,18 @@
 import GlassPreview from "../components/GlassPreview";
-import { sampleGlass } from "../data/sampleGlass";
 import { useState } from "react";
 
-export default function InventoryPage() {
+import type { GlassItem } from "../types/GlassItem";
+
+export default function InventoryPage(props: { inventory: GlassItem[] }) {
   const [selectedColor, setSelectedColor] = useState("");
+  const { inventory } = props;
 
   // map (usual), Set (deduplicates), ... -> converts to array
-  const colors = [...new Set(sampleGlass.flatMap((glass) => glass.color))];
+  const colors = [...new Set(inventory.flatMap((glass) => glass.color))];
   // if selected color is !empty, filter by that color; otherwise show all
   const filteredGlass = selectedColor
-    ? sampleGlass.filter((glass) => glass.color.includes(selectedColor))
-    : sampleGlass;
+    ? inventory.filter((glass) => glass.color.includes(selectedColor))
+    : inventory;
 
   return (
     <div>
