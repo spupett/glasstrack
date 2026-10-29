@@ -189,3 +189,16 @@
   margin: 16px 0;
   border-radius: 8px;
 }
+
+.glass-preview-component {
+  border: 1px solid var(--border);
+  padding: 16px;
+  margin: 16px 0;
+  border-radius: 8px;
+}
+
+.glass-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}

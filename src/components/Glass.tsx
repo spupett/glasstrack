@@ -5,7 +5,10 @@ export default function Glass(props: {
     <div className="glass-component">
       <div>
         <p>Manufacturer: {props.glass.manufacturer}</p>
-        <p>Color: {props.glass.color}</p>
+        <p>
+          Color{props.glass.color.length > 1 ? "s" : ""}:{" "}
+          {props.glass.color.join(", ")}
+        </p>
         <p>Glass Type: {props.glass.glassType}</p>
       </div>
       <div>
